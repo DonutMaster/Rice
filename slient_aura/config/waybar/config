@@ -96,3 +96,11 @@
 		"on-click": "bash ~/.config/system_scripts/power_menu.sh"
 	}
 }
+
+~/.config/waybar/config
+
+	"layer": "top",
+	"position": "top",
+	"height": 30,
+	"spacing": 4,
+	"modules-left": ["custom/launcher","cpu","memory","custom/media","tray"],
