@@ -103,3 +103,25 @@
 	"height": 30,
 	"spacing": 4,
 	"modules-left": ["custom/launcher","cpu","memory","custom/media","tray"],
+
+nano ~/.config/pipewire/pipewire.conf.d/10-audio-fix.conf
+```
+
+Replace with:
+```
+context.properties = {
+    default.clock.rate = 48000
+    default.clock.quantum = 1024
+}
+
+context.modules = [
+    {   name = libpipewire-module-rtkit
+        args = {
+            nice.level = -11
+            rt.prio = 88
+            rt.time.soft = 2000000
+            rt.time.hard = 2000000
+        }
+        flags = [ ifexists nofail ]
+    }
+]
